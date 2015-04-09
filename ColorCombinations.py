@@ -27,9 +27,9 @@ padding = 10
 
 # end of editable parameters
 
-spaceH = swatchHeight + padding
-spaceV = swatchWidth + padding
-startX = (595 - ((len(colors)+1)*spaceH + swatchWidth))/2 # center horizontally
+spaceX = swatchWidth + padding
+spaceY = swatchHeight + padding*1.025
+startX = (595 - ((len(colors)+1)*spaceX + swatchWidth))/2 # center horizontally
 startY = 750
 
 newPage('A4')
@@ -37,7 +37,7 @@ translate(startX,startY)
 for c1 in colors:
     r1, g1, b1 = c1
     for c2 in colors:
-        translate(spaceH,0)
+        translate(spaceX,0)
         if c1 != c2:
             r2, g2, b2 = c2
             stroke(None)
@@ -50,4 +50,4 @@ for c1 in colors:
             strokeWidth(3)
             fill(r1,g1,b1)
             rect(0, 0, swatchWidth, swatchHeight)
-    translate(-(len(colors) * spaceH),-spaceV)
+    translate(-(len(colors) * spaceX),-spaceY)
