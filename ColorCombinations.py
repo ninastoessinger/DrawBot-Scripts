@@ -4,6 +4,11 @@ ColorCombinations.py
 Simple DrawBot script to show all possible combinations of color swatches for a given list of colors.
 """
 
+# set a color space to finetune display of colors
+# requires DrawBot version 3.55 and up
+# use listColorSpaces() to see what's available
+colorspace = "sRGB"
+
 # define colors as r,g,b values
 colorsRGB = [
     (0,0,0),
@@ -27,12 +32,15 @@ padding = 10
 
 # end of editable parameters
 
+
 spaceX = swatchWidth + padding
 spaceY = swatchHeight + padding*1.025
 startX = (595 - ((len(colors)+1)*spaceX + swatchWidth))/2 # center horizontally
 startY = 750
 
+
 newPage('A4')
+colorSpace(colorspace)
 translate(startX,startY)
 for c1 in colors:
     r1, g1, b1 = c1
